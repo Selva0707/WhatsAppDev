@@ -1,0 +1,58 @@
+public class Task2 {
+	
+	public static void main(String[] args) {
+		
+		String input1 = "the-test-case";
+		String input2 = "The_First_Word_Capital";
+		String output1,output2;
+		
+		output1 = camelCase(input1, "-");
+		output2=input2.replace("_","");
+		
+		System.out.println(output1);
+		System.out.println(output2);
+		
+	}
+	
+   public static String camelCase(String input, String delimiter) {
+	   
+	   String convertedValue = "";
+	   String convertedString0 = "",convertedString1= "",convertedString2= "";
+	   
+		   String inputSplit[] = input.split("-");
+ 		   convertedString0 = inputSplit[0];
+		   
+		   for(int i = 0 ; i< inputSplit.length;i++ ) {
+			   if(i == 1) {
+				   char[] characters1 = inputSplit[i].toCharArray();
+				   convertedString1 =   convertFirstLetter(characters1);
+			   }
+			   if(i==2) {
+				   char[] characters2 = inputSplit[i].toCharArray();
+				   convertedString2 =   convertFirstLetter(characters2);
+			   }
+		   }
+		   
+		   convertedValue = convertedString0+convertedString1+convertedString2;   
+		   
+	   return convertedValue;
+	   
+   }
+   
+	private static String convertFirstLetter(char[] characters1) {
+		
+		   char fUpper = Character.toUpperCase(characters1[0]);
+		   String uppercasevalue;
+		   
+		   for(int j = 0 ; j <characters1.length; j++ ) {
+			   if(j == 0) {
+				   characters1[j] = fUpper;
+				   break;
+			   }
+		   }
+		   
+		   uppercasevalue = new String(characters1);
+		   
+		  return uppercasevalue;
+	} 
+}

@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Task1 {
+	
+	public static void main(String[] args) {
+		
+		String input;
+		Scanner myScanner =  new Scanner(System.in);
+		int defaultvalue = 0;
+		int indexValue = 0;
+		int count = 0;
+		int arrayStorage[];
+ 		
+		System.out.println("Enter the String : ");
+		input = myScanner.next();
+		
+		char[] characters = input.toCharArray();
+		
+		for(int i = 0 ; i < characters.length; i++) {
+			String value = Character.toString(characters[i]);
+			
+			if(value.equals("o") || value.equals("O")) {
+				indexValue++;
+			}
+		}
+		
+		arrayStorage = new int[indexValue];
+		
+		for(int j = 0 ; j< characters.length;j++) {
+			String value = Character.toString(characters[j]);
+			
+			if(value.equals("a") || value.equals("A")) {
+				
+				++defaultvalue;
+				System.out.println("a - add by one: " + defaultvalue);
+				
+			}else if(value.equals("m") || value.equals("M")) {
+				
+							--defaultvalue;
+							System.out.println("m - sub by one: " + defaultvalue);
+							
+						}else if(value.equals("s") || value.equals("S")) {
+							
+							defaultvalue = defaultvalue*defaultvalue;
+							System.out.println("s - Square Value: " + defaultvalue);
+							
+						}else if(value.equals("o") || value.equals("O")) {
+							
+							 arrayStorage[count] = defaultvalue;
+							 count++;
+							 
+							 System.out.println("O - Array Stored value: " + defaultvalue);
+						}
+		}
+		
+		for(int k = 0 ; k< arrayStorage.length;k++) {
+				System.out.println("arrayStorage index["+k+"] :" + arrayStorage[k]  );
+		}
+	}
+}
